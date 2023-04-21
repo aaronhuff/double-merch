@@ -21,6 +21,14 @@ class Merch:
         "Skate Cap",
     ]
 
+    mouth_traits = [
+        "Yoyo",
+    ]
+
+    eyewear_traits = [
+        "Wayfarer Sunglasses"
+    ]
+
 
 class Bears:
     def __init__(self, json_data: list):
@@ -78,6 +86,10 @@ class Bear:
             if trait['trait_type'] == 'Clothes' and trait['value'] in Merch.cloth_traits:
                 traits.append(trait)
             elif trait['trait_type'] == 'Hat' and trait['value'] in Merch.hat_traits:
+                traits.append(trait)
+            elif trait['trait_type'] == 'Mouth' and trait['value'] in Merch.mouth_traits:
+                traits.append(trait)
+            elif trait['trait_type'] == 'Eyewear' and trait['value'] in Merch.eyewear_traits:
                 traits.append(trait)
         return traits
 

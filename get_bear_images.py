@@ -20,12 +20,18 @@ def write_image(image, name):
 def get_bear_images(bears):
     logging.info("Getting bear images")
     os.makedirs("images", exist_ok=True)
+    bear_num = 0
     for bear in bears:
-        logging.info(f"Getting image for {bear['name']}")
+        bear_num += 1
         image_url = bear["url"]
-        image = requests.get(image_url)
         image_name = bear["name"] + ".png"
-        write_image(image.content, image_name)
+        if not os.path.exists(f"images/{image_name}"):
+            logging.info(f"Getting image for {bear['name']}")
+            image = requests.get(image_url)
+            write_image(image.content, image_name)
+        else:
+            logging.warning(f"Image {image_name} already exists")
+    logging.info(f"{bear_num} bears downloaded")
 
 
 if __name__ == "__main__":
