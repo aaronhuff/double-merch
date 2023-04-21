@@ -2,7 +2,7 @@ import logging
 import json
 import os
 from dotenv import load_dotenv
-from quicknode import QuickNodeEndpoint as qn
+from quicknode.quicknode_api import QuickNodeEndpoint as qn
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)

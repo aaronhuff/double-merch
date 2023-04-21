@@ -166,4 +166,4 @@ cython_debug/
 images/
 
 # Bears Metadata
-bears.json
+data/
