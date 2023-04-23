@@ -13,7 +13,7 @@ def load_bears():
 
 def write_image(image, name):
     logging.info(f"Writing image {name}")
-    with open(f"images/{name}", "wb") as f:
+    with open(f"images/original/{name}", "wb") as f:
         f.write(image)
 
 
@@ -25,7 +25,7 @@ def get_bear_images(bears):
         bear_num += 1
         image_url = bear["url"]
         image_name = bear["name"] + ".png"
-        if not os.path.exists(f"images/{image_name}"):
+        if not os.path.exists(f"images/original/{image_name}"):
             logging.info(f"Getting image for {bear['name']}")
             image = requests.get(image_url)
             write_image(image.content, image_name)

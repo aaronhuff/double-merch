@@ -1,4 +1,4 @@
-class Merch:
+class MerchTraits:
     cloth_traits = [
         "Denim Jacket",
         "Leather Jacket",
@@ -28,6 +28,8 @@ class Merch:
     eyewear_traits = [
         "Wayfarer Sunglasses"
     ]
+
+    all = cloth_traits + hat_traits + mouth_traits + eyewear_traits
 
 
 class Bears:

@@ -10,10 +10,11 @@ logging.info("Found {} images".format(len(images)))
 
 logging.info("Compressing images and saving to images/")
 for image in images:
-    logging.info("Compressing {}".format(image))
+    bear = image.split("/")[-1]
+    logging.info("Compressing {}".format(bear))
     new_path = "images/thumbnails/" + image.split("/")[-1]
     img = Image.open(image)
-    img.thumbnail((300, 300))
+    img.thumbnail((400, 400))
     img.save(new_path, "PNG")
 
 logging.info("Done!")
