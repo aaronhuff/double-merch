@@ -5,41 +5,21 @@
     <meta charset="UTF-8">
     <title>Double Merch</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
     <header>
         <h1>DOUBLE MERCH DAO</h1>
-        <p class="counter">We're 367 strong and counting</p>
+        <p class="counter">We're 515 strong and counting</p>
     </header>
     <div class="container">
-        <div class="left">
-
-        </div>
+        <div id="filter-buttons">
+            <button class="filter-btn" data-category="All">All</button>
+            <!-- loop through categories data to create filter buttons -->
+          </div>
+        <div id="image-container"></div>
     </div>
-
-    <script>
-        function filterImages(category) {
-            const images = document.querySelectorAll("#image-container img");
-            images.forEach((img) => {
-                if (category === "all" || img.dataset.category === category) {
-                    img.style.display = "block";
-                } else {
-                    img.style.display = "none";
-                }
-            });
-        }
-
-        const filterBtns = document.querySelectorAll(".filter-btn");
-        filterBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                filterImages(btn.dataset.category);
-            });
-        });
-
-        filterImages("all");
-
-    </script>
 </body>
 
 </html>
