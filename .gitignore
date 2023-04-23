@@ -163,7 +163,8 @@ cython_debug/
 .vscode/
 
 # Bears Images
-images/
+images/original/
 
 # Bears Metadata
-data/
+data/*
+!data/traits_filters.json
