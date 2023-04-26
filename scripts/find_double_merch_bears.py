@@ -16,6 +16,7 @@ if __name__ == '__main__':
     data = load_json('data/bears.json')
     bears = Bears(data)
     double_merch_bears = []
+    tokens = []
     for bear in bears:
         if bear.double_merch:
             double_merch_bears.append({
@@ -23,4 +24,6 @@ if __name__ == '__main__':
                     'url': bear.image_url,
                     'merch_traits': bear.merch_traits,
                 })
+            tokens.append(bear.token_address)
     write_json(double_merch_bears, 'data/double_merch.json')
+    write_json(tokens, 'data/tokens.json')

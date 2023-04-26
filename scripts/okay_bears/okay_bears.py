@@ -85,13 +85,13 @@ class Bear:
     def merch_traits(self) -> list:
         traits = []
         for trait in self.traits:
-            if trait['trait_type'] == 'Clothes' and trait['value'] in Merch.cloth_traits:
+            if trait['trait_type'] == 'Clothes' and trait['value'] in MerchTraits.cloth_traits:
                 traits.append(trait)
-            elif trait['trait_type'] == 'Hat' and trait['value'] in Merch.hat_traits:
+            elif trait['trait_type'] == 'Hat' and trait['value'] in MerchTraits.hat_traits:
                 traits.append(trait)
-            elif trait['trait_type'] == 'Mouth' and trait['value'] in Merch.mouth_traits:
+            elif trait['trait_type'] == 'Mouth' and trait['value'] in MerchTraits.mouth_traits:
                 traits.append(trait)
-            elif trait['trait_type'] == 'Eyewear' and trait['value'] in Merch.eyewear_traits:
+            elif trait['trait_type'] == 'Eyewear' and trait['value'] in MerchTraits.eyewear_traits:
                 traits.append(trait)
         return traits
 
