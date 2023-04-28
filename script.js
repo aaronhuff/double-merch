@@ -1,6 +1,6 @@
 let images = [];
 let currentPage = 1;
-let imagesPerPage = 12;
+let imagesPerPage = 8;
 
 // Load filters from JSON file
 fetch('data/filters.json')
@@ -42,15 +42,25 @@ function showPage(page) {
         pagesDiv.removeChild(pagesDiv.firstChild);
     }
     const pageDiv = document.createElement('div');
-    pageDiv.classList.add('page');
+    pageDiv.className = 'page flex-container';
 
     pageImages.forEach((image, index) => {
+        const imageDiv = document.createElement('div');
+        imageDiv.className = 'bear flex-container';
+
         const img = document.createElement('img');
         img.className = 'image rounded';
         img.src = image;
-        img.alt = image.split('.')[0];
+        img.alt = image.split('/').pop().split('.')[0];
         img.id = `image-${startIndex + index}`;
-        pageDiv.appendChild(img);
+        imageDiv.appendChild(img);
+
+        const label = document.createElement('label');
+        label.textContent = `Bear #${img.alt}`;
+        label.className = 'label other';
+        imageDiv.appendChild(label)
+
+        pageDiv.appendChild(imageDiv);
     });
 
     pagesDiv.appendChild(pageDiv);
@@ -60,6 +70,7 @@ function showPage(page) {
 // Render pagination buttons
 function renderPagination() {
     const paginationDiv = document.querySelector('.pagination');
+    paginationDiv.className = 'pagination flex-container';
     paginationDiv.innerHTML = '';
 
     const pageCount = Math.ceil(images.length / imagesPerPage);
@@ -67,7 +78,7 @@ function renderPagination() {
     for (let i = 1; i <= pageCount; i++) {
         const button = document.createElement('button');
         button.textContent = i;
-        button.className = 'btn btn-light btn-sm';
+        button.className = 'button btn btn-light btn-sm';
         button.addEventListener('click', () => {
             showPage(i);
         });
