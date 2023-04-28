@@ -11,14 +11,20 @@ fetch('data/filters.json')
         filters.traits.forEach(filter => {
             const button = document.createElement('button');
             button.textContent = filter.name;
-            button.className = 'btn btn-light btn-sm';
+            button.className = 'button btn btn-light btn-sm';
             button.type = 'button';
             button.addEventListener('click', () => {
                 displayImages(filter);
             });
             buttonsDiv.appendChild(button);
+            if (filter.name = "All")
+            {
+                displayImages(filter);
+            }
         });
     });
+
+
 
 function displayImages(filter) {
     // Load images for selected filter
@@ -28,6 +34,7 @@ function displayImages(filter) {
     currentPage = 1;
     showPage(currentPage);
     renderPagination();
+    setActiveFilter(filter);
 }
 
 
@@ -91,6 +98,18 @@ function setActivePage(page) {
     const buttons = document.querySelectorAll('.pagination button');
     buttons.forEach(button => {
         if (parseInt(button.textContent) === page) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
+}
+
+// Set active filter button
+function setActiveFilter(filter) {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        if (parseInt(button.textContent) === filter.name) {
             button.classList.add('active');
         } else {
             button.classList.remove('active');
