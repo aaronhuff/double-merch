@@ -167,5 +167,5 @@ images/original/
 
 # Bears Metadata
 data/*
-!data/traits_filters.json
+!data/filters.json
 !data/tokens.json
