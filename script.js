@@ -1,6 +1,6 @@
 let images = [];
 let currentPage = 1;
-let imagesPerPage = 6;
+let imagesPerPage = 10;
 
 // Load filters from JSON file
 fetch('data/filters.json')
